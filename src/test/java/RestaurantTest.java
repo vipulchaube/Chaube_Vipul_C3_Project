@@ -68,22 +68,5 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER VALUE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    @Test
-    public void order_value_should_get_cumulative_total_when_collection_of_items_selected(){
-        restaurantCreate();
-        order = restaurant.getMenu();
-        assertEquals(568,restaurant.getOrderValue(order));
-    }
 
-    @Test
-    public void order_value_should_reduce_cumulative_total_when_an_item_removed(){
-        restaurantCreate();
-        order = restaurant.getMenu();
-        int total = restaurant.getOrderValue(order);
-        int afterTotal = order.get(1).getPrice();
-        order.remove(1);
-        assertEquals(total-afterTotal,restaurant.getOrderValue(order));
-    }
-    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
